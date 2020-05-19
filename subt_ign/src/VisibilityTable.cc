@@ -16,6 +16,7 @@
 */
 
 #include <algorithm>
+#include <cstdlib>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -115,9 +116,18 @@ bool VisibilityTable::LoadLUT()
   in.open(this->lutPath);
   if (!in.is_open())
   {
-    std::cerr << "[VisibilityTable] Unable to find file ["
-              << this->lutPath << "]" << std::endl;
-    return false;
+    // Try the compressed version.
+    this->lutPath += ".gz";
+    in.open(this->lutPath);
+    if (in.good())
+      std::system(("gunzip -k " + this->lutPath).c_str());
+    else
+    {
+      std::cerr << "[VisibilityTable] Unable to find file ["
+                << this->lutPath << "] or [" << this->lutPath << ".gz]"
+                << std::endl;
+      return false;
+    }
   }
 
   // First, load the number of entries.

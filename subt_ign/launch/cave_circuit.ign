@@ -669,6 +669,9 @@
             <smooth_current_tau>1.9499</smooth_current_tau>
             <power_load>6.6</power_load>
             <start_on_motion>true</start_on_motion>
+            <enable_recharge>true</enable_recharge>
+            <charging_time>3.0</charging_time>
+            <recharge_by_topic>true</recharge_by_topic>
           </plugin>
           <!-- Gas Sensor plugin -->
           <plugin filename="libGasEmitterDetectorPlugin.so"
@@ -697,7 +700,7 @@
         </sdf>
       </spawn>
     HEREDOC
-  
+
     exec = <<-HEREDOC
       <executable name='x1_description'>
         <command>roslaunch --wait subt_ros x1_description.launch world_name:=#{$worldName} name:=#{_name}</command>
@@ -933,7 +936,7 @@
           <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
           <motorType>velocity</motorType>
         </plugin>
-        <!--Multicopter velocity controller--> 
+        <!--Multicopter velocity controller-->
         <plugin
           filename="libignition-gazebo-multicopter-control-system.so"
           name="ignition::gazebo::systems::MulticopterVelocityControl">
@@ -1176,7 +1179,7 @@
           <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
           <motorType>velocity</motorType>
         </plugin>
-        <!--Multicopter velocity controller--> 
+        <!--Multicopter velocity controller-->
         <plugin
           filename="libignition-gazebo-multicopter-control-system.so"
           name="ignition::gazebo::systems::MulticopterVelocityControl">
@@ -1466,7 +1469,7 @@
            <is_performer>false</is_performer>
            <sdf version='1.6'>
              <include>
-               <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/DronePlatformX1</uri> 
+               <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/DronePlatformX1</uri>
              </include>
            </sdf>
          </spawn>

@@ -484,7 +484,7 @@
           <match field='header.data'>{ key: "state" value: "1" }</match>
           <match field='name'>"X1"</match>
         </input>
-        <output type="ignition.msgs.Empty" topic="/recharge_start"/>
+        <output type="ignition.msgs.Boolean" topic="/model/X1/linear_battery/recharge/start"/>
       </plugin>
       <!--Triggered by performer_detector_staging-->
       <plugin name="ignition::gazebo::systems::TriggeredPublisher" filename="libignition-gazebo-triggered-publisher-system.so">
@@ -493,7 +493,7 @@
           <match field='header.data'>{ key: "state" value: "0" }</match>
           <match field='name'>"X1"</match>
         </input>
-        <output type="ignition.msgs.Empty" topic="/recharge_stop"/>
+        <output type="ignition.msgs.Boolean" topic="/model/X1/linear_battery/recharge/stop"/>
       </plugin>
     </model>
 

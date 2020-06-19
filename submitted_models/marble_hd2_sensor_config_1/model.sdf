@@ -62,7 +62,7 @@
         </surface>
       </collision>
       <collision name="base_link_fixed_joint_lump__camera/camera_link_collision_2">
-        <pose frame="">0.478 0 0.285 0 -0 0</pose>
+        <pose frame="">0.485 0 0.31 0 -0 0</pose>
         <geometry>
           <box>
             <size>0.0078 0.13 0.0192</size>
@@ -106,7 +106,7 @@
         </surface>
       </collision>
       <collision name="base_link_fixed_joint_lump__velodyne_base_link_collision_6">
-        <pose frame="">0.424 0 0.327 0 -0 0</pose>
+        <pose frame="">0.403 0 0.36 0 -0 0</pose>
         <geometry>
           <cylinder>
             <length>0.0717</length>
@@ -115,7 +115,7 @@
         </geometry>
       </collision>
       <collision name="base_link_fixed_joint_lump__velodyne_gimbal_plate_base_link_collision_7">
-        <pose frame="">0.424 0 0.400 0 -0 0</pose>
+        <pose frame="">0.403 0 0.410 0 -0 0</pose>
         <geometry>
           <box>
             <size>0.1 0.1 0.01</size>
@@ -138,80 +138,37 @@
           </box>
         </geometry>
       </collision>
-      <visual name="base_link_visual">
-        <pose frame="">0 0 0 1.57 0 1.57</pose>
+      <visual name="Body_visual">
+        <pose>0 0 -0.135 0 0 1.57</pose>
+        <geometry>
+          <mesh>
+            <uri>meshes/hd2.dae</uri>
+            <submesh>
+              <name>Body</name>
+              <center>false</center>
+            </submesh>
+            <scale>5.47 5.47 5.47</scale>
+          </mesh>
+        </geometry>
         <material>
-                    <diffuse>0.5 0.5 0.5 1</diffuse>
-                    <ambient>.5 .5 .5 1</ambient>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>materials/textures/HD2_Albedo.png</albedo_map>
+              <metalness_map>materials/textures/HD2_Metalness.png</metalness_map>
+              <roughness_map>materials/textures/HD2_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+          <!-- fallback to script if no PBR support-->
+          <script>
+            <uri>materials/scripts/</uri>
+            <uri>materials/textures/</uri>
+            <name>HD/HD2_Diffuse</name>
+          </script>
+        </material>
+      </visual>
 
-                    <!-- <script>
-                        <name>Gazebo/Blue</name>
-                        <uri>file://media/materials/scripts/gazebo.material</uri>
-                    </script> -->
-                </material>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/hd2_chassis.stl</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name="track_left_visual">
-        <pose frame="">0 0.2625 0 1.57 0 1.57</pose>
-        <material>
-                    <diffuse>0 0 0 1</diffuse>
-                    <ambient>0 0 0 1</ambient>
-                    <specular>0 0 0 1</specular>
-                    <emissive>0 0 0 1</emissive>
-
-                    <!-- <script>
-                        <name>Gazebo/Blue</name>
-                        <uri>file://media/materials/scripts/gazebo.material</uri>
-                    </script> -->
-                </material>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/track.stl</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name="track_right_visual">
-        <pose frame="">0 -0.2625 0 1.57 0 1.57</pose>
-        <material>
-                    <diffuse>0 0 0 1</diffuse>
-                    <ambient>0 0 0 1</ambient>
-                    <specular>0 0 0 1</specular>
-                    <emissive>0 0 0 1</emissive>
-
-                    <!-- <script>
-                        <name>Gazebo/Blue</name>
-                        <uri>file://media/materials/scripts/gazebo.material</uri>
-                    </script> -->
-                </material>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/track.stl</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name="base_link_fixed_joint_lump__camera/camera_link_visual_1">
-        <pose frame="">0.44 0 0.260 0 0.5236 0</pose>
-        <geometry>
-          <mesh>
-            <uri>meshes/realsense.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name="base_link_fixed_joint_lump__camera/camera_link_visual_2">
-        <pose frame="">0.44 0 0.295 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>meshes/realsense.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
 <!--
       <visual name="base_link_fixed_joint_lump__front_bumper_link_visual_3">
         <pose frame="">0.48 0 0.091 0 -0 0</pose>
@@ -242,36 +199,6 @@
         </geometry>
       </visual>
 -->
-      <!-- Bottom cylinder of Ouster/Velodyne 3D Lidar -->
-      <visual name="base_link_fixed_joint_lump__velodyne_base_link_visual_10">
-        <pose frame="">0.354 0 0.327 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/VLP16_base_1.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <!-- Top cylinder of Ouster/Velodyne 3D Lidar -->
-      <visual name="base_link_fixed_joint_lump__velodyne_base_link_visual_11">
-        <pose frame="">0.354 0 0.327 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/VLP16_base_2.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <!-- Main cylinder of Ouster/Velodyne 3D Lidar -->
-      <visual name="base_link_fixed_joint_lump__velodyne_visual_12">
-        <pose frame="">0.354 0 0.327 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/VLP16_scan.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
       <!-- Rail on top of husky -->
 <!--
       <visual name="base_link_fixed_joint_lump__user_rail_link_visual_13">
@@ -284,48 +211,6 @@
         </geometry>
       </visual>
 -->
-      <!-- 2D planar lidar at bottom of sensor suite -->
-      <visual name="base_link_fixed_joint_lump__planar_lidar_link_visual_14">
-        <pose frame="">0.354 0 0.127 0 -0 0</pose>
-        <geometry>
-          <cylinder>
-              <radius>0.045</radius>
-              <length>0.05</length>
-          </cylinder>
-        </geometry>
-      </visual>
-      <visual name="base_link_fixed_joint_lump__velodyne_gimbal_plate_15">
-       <pose frame="">0.354 0 0.400 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.06 0.06 0.01</size>
-          </box>
-        </geometry>
-      </visual>
-      <visual name="base_link_fixed_joint_lump__sensor_tower_16">
-       <pose frame="">0.354 0 0.19 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.18 0.25 0.275</size>
-          </box>
-        </geometry>
-      </visual>
-      <visual name="base_link_fixed_joint_lump__computer_block_17">
-       <pose frame="">0.050 0 0.135 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.30 0.355 0.175</size>
-          </box>
-        </geometry>
-      </visual>
-      <visual name="base_link_fixed_joint_lid_18">
-       <pose frame="">0 0 0.05 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.7 0.35 0.02</size>
-          </box>
-        </geometry>
-      </visual>
       <velocity_decay/>
       <self_collide>0</self_collide>
       <enable_wind>0</enable_wind>
@@ -378,7 +263,7 @@
         <always_on>1</always_on>
         <update_rate>30</update_rate>
         <visualize>0</visualize>
-        <pose frame="">0.44 0 0.360 0 -0 0</pose>
+        <pose frame="">0.485 0 0.31 0 -0 0</pose>
       </sensor>
       <gravity>1</gravity>
       <velocity_decay/>
@@ -430,13 +315,13 @@
         <always_on>1</always_on>
         <update_rate>30</update_rate>
         <visualize>0</visualize>
-        <pose frame="">0.44 0 0.335 0 0.5236 0</pose> <!-- 30 degree download look-->
+        <pose frame="">0.473 0 0.260 0 0.5236 0</pose> <!-- 30 degree download look-->
       </sensor>
       <gravity>1</gravity>
       <velocity_decay/>
       <!-- Based on RPLidar S1 -->
       <sensor name="planar_laser" type="gpu_ray">
-          <pose>0.354 0 0.127 0 -0 0</pose>
+          <pose>0.403 0 0.127 0 -0 0</pose>
           <update_rate>10</update_rate>
           <lidar>
               <scan>
@@ -494,9 +379,9 @@
             <stddev>0.03</stddev>
           </noise>
         </lidar>
-        <pose frame="">0.354 0 0.387 0 -0 0</pose>
+        <pose frame="">0.403 0 0.36 0 -0 0</pose>
       </sensor>
-      
+
       <sensor name="imu_sensor" type="imu">
         <always_on>1</always_on>
         <update_rate>50</update_rate>
@@ -610,16 +495,6 @@
         </surface>
       </collision>
 
-      <visual name="front_left_wheel_link_visual">
-        <pose frame="">0 0 0 1.5707963267948966 -0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.1</length>
-            <radius>0.129</radius>
-          </cylinder>
-        </geometry>
-      </visual>
-
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
@@ -679,16 +554,6 @@
           </friction>
         </surface>
       </collision>
-
-      <visual name="front_middle_left_wheel_link_visual">
-        <pose frame="">0 0 0 1.5707963267948966 -0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.1</length>
-            <radius>0.129</radius>
-          </cylinder>
-        </geometry>
-      </visual>
 
       <gravity>1</gravity>
       <velocity_decay/>
@@ -750,16 +615,6 @@
         </surface>
       </collision>
 
-      <visual name="rear_middle_left_wheel_link_visual">
-        <pose frame="">0 0 0 1.5707963267948966 -0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.1</length>
-            <radius>0.129</radius>
-          </cylinder>
-        </geometry>
-      </visual>
-
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
@@ -819,16 +674,6 @@
           </friction>
         </surface>
       </collision>
-
-      <visual name="rear_left_wheel_link_visual">
-        <pose frame="">0 0 0 1.5707963267948966 -0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.1</length>
-            <radius>0.129</radius>
-          </cylinder>
-        </geometry>
-      </visual>
 
       <gravity>1</gravity>
       <velocity_decay/>
@@ -891,16 +736,6 @@
         </surface>
       </collision>
 
-      <visual name="front_right_wheel_link_visual">
-        <pose frame="">0 0 0 1.5707963267948966 -0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.1</length>
-            <radius>0.129</radius>
-          </cylinder>
-        </geometry>
-      </visual>
-
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
@@ -960,16 +795,6 @@
           </friction>
         </surface>
       </collision>
-
-      <visual name="front_middle_right_wheel_link_visual">
-        <pose frame="">0 0 0 1.5707963267948966 -0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.1</length>
-            <radius>0.129</radius>
-          </cylinder>
-        </geometry>
-      </visual>
 
       <gravity>1</gravity>
       <velocity_decay/>
@@ -1031,16 +856,6 @@
         </surface>
       </collision>
 
-      <visual name="rear_middle_right_wheel_link_visual">
-        <pose frame="">0 0 0 1.5707963267948966 -0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.1</length>
-            <radius>0.129</radius>
-          </cylinder>
-        </geometry>
-      </visual>
-
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
@@ -1101,16 +916,6 @@
         </surface>
       </collision>
 
-      <visual name="rear_right_wheel_link_visual">
-        <pose frame="">0 0 0 1.5707963267948966 -0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.1</length>
-            <radius>0.129</radius>
-          </cylinder>
-        </geometry>
-      </visual>
-
       <gravity>1</gravity>
       <velocity_decay/>
     </link>
@@ -1132,7 +937,7 @@
     </joint>
     <!-- Gimbal Links + Joints -->
     <link name="pan_gimbal_link">
-      <pose frame="">0.354 0 0.427 0 -0 0</pose>
+      <pose frame="">0.4056 -0.01122 0.4904 0 -0 0</pose>
       <inertial>
         <pose frame="">0 0 0 0 -0 0</pose>
         <mass>0.1</mass>
@@ -1162,18 +967,38 @@
         </contact>
       </surface>
       </collision>
-      <visual name="pan_gimbal_link_visual">
-        <pose frame="">0.0 0 0.0 0 -0 0</pose>
+      <visual name= "CameraPivot_visual">
+        <pose>0 0 0 0 0 1.57</pose>
         <geometry>
-          <cylinder>
-            <length>0.045</length>
-            <radius>0.014</radius>
-          </cylinder>
+          <mesh>
+            <uri>meshes/hd2.dae</uri>
+            <submesh>
+              <name>CameraPivot</name>
+              <center>true</center>
+            </submesh>
+            <scale>5.47 5.47 5.47</scale>
+          </mesh>
         </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>materials/textures/HD2_Albedo.png</albedo_map>
+              <metalness_map>materials/textures/HD2_Metalness.png</metalness_map>
+              <roughness_map>materials/textures/HD2_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+          <script>
+            <uri>materials/scripts/</uri>
+            <uri>materials/textures/</uri>
+            <name>HD2/HD2_Diffuse</name>
+          </script>
+        </material>
       </visual>
     </link>
     <link name="tilt_gimbal_link">
-      <pose frame="">0.354 0 0.460 0 -0 0</pose>
+      <pose frame="">0.409 -0.008 0.5013 0 -0 0</pose>
       <inertial>
         <pose frame="">0 0 0 1.570796 -0 0</pose>
         <mass>0.1</mass>
@@ -1203,15 +1028,37 @@
         </contact>
       </surface>
       </collision>
-      <visual name="tilt_gimbal_link_visual">
-        <pose frame="">0.0 0 0.0 1.570796 -0 0</pose>
+      <visual name= "CameraTilt_visual">
+        <pose>0.005 0.015 0.038 0 0 -1.570796</pose>
         <geometry>
-          <cylinder>
-            <length>0.045</length>
-            <radius>0.014</radius>
-          </cylinder>
+          <mesh>
+            <uri>meshes/hd2.dae</uri>
+            <submesh>
+              <name>CameraTilt</name>
+              <center>true</center>
+            </submesh>
+            <scale>5.47 5.47 5.47</scale>
+          </mesh>
         </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>materials/textures/HD2_Albedo.png</albedo_map>
+              <metalness_map>materials/textures/HD2_Metalness.png</metalness_map>
+              <roughness_map>materials/textures/HD2_Roughness.png</roughness_map>
+            </metal>
+          </pbr>
+          <!-- fallback to script if no PBR support-->
+          <script>
+            <uri>materials/scripts/</uri>
+            <uri>materials/textures/</uri>
+            <name>HD/HD2_Diffuse</name>
+          </script>
+        </material>
       </visual>
+
       <!-- Based on Intel realsense D435 (intrinsics and distortion not modeled)-->
       <sensor name="camera_pan_tilt" type="rgbd_camera">
         <camera name="camera_pan_tilt">
@@ -1265,32 +1112,8 @@
       </sensor>
       <gravity>1</gravity>
       <velocity_decay/>
-      <visual name="tilt_gimbal_link_fixed_joint_lump__camera/camera_link_visual_0">
-        <pose frame="">0 0 0.03 0 0.0 0</pose>
-        <geometry>
-          <mesh>
-            <uri>meshes/realsense.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name="tilt_gimbal_link_fixed_joint_lump_bot_camera_plate_link_visual_1">
-       <pose frame="">0 0 0.017 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.025 0.13 0.007</size>
-          </box>
-        </geometry>
-      </visual>
-      <visual name="tilt_gimbal_link_fixed_joint_lump_bot_camera_plate_link_visual_2">
-       <pose frame="">0 0 0.042 0 -0 0</pose>
-        <geometry>
-          <box>
-            <size>0.025 0.13 0.007</size>
-          </box>
-        </geometry>
-      </visual>
       <light name="flashlight_flashlight_light_source_lamp_light" type="spot">
-        <pose frame="">0.0 0.0 0.065 3.141592653589793 1.5707963267948966 -0.0015926535897931</pose>
+        <pose frame="">0.02 -0.01 0.076 3.141592653589793 1.5707963267948966 -0.0015926535897931</pose>
         <attenuation>
           <range>50</range>
           <linear>0</linear>
@@ -1308,7 +1131,7 @@
         <direction>0 0 -1</direction>
       </light>
       <visual name="flashlight_flashlight_light_source_lamp_viz_visual">
-        <pose>0.0 0.0 0.065 3.141592653589793 1.5707963267948966 -0.0015926535897931</pose>
+        <pose>0.02 -0.01 0.076 3.141592653589793 1.5707963267948966 -0.0015926535897931</pose>
         <geometry>
           <cylinder>
             <radius>0.019</radius>

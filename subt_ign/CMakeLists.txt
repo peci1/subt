@@ -118,6 +118,7 @@ target_link_libraries(${game_logic_plugin_name}
     ${protobuf_lib_name}
     ${YAML_CPP_LIBRARIES}
 )
+add_dependencies(${game_logic_plugin_name} ${catkin_EXPORTED_TARGETS})
 install(TARGETS ${game_logic_plugin_name}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib

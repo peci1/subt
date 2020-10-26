@@ -511,8 +511,8 @@ void Processor::Cb(const ignition::msgs::Pose_V &_msg)
   {
     // Only conder robots.
     std::string name = _msg.pose(i).name();
-    if (name.find("_wheel") != std::string::npos ||
-        name.find("rotor_") != std::string::npos || name == "base_link") {
+    if (name.find("_wheel") != std::string::npos || name.find("breadcrumb_") != std::string::npos ||
+        name.find("rotor_") != std::string::npos || name.find("Rock_") != std::string::npos || name == "base_link") {
       continue;
     }
 

@@ -525,8 +525,8 @@ void PlaybackEventRecorder::Configure(const ignition::gazebo::Entity &,
   stagingAreaEvent.endRecordTime += this->dataPtr->endTimeBuffer;
 
   // add the staging area event
-  if (!stagingAreaEventTime.empty())
-    this->dataPtr->events.push_front(stagingAreaEvent);
+//  if (!stagingAreaEventTime.empty())
+//    this->dataPtr->events.push_front(stagingAreaEvent);
 
   // don't do anything if there are no events
   if (this->dataPtr->events.empty())
